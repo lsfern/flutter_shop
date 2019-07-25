@@ -1,8 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_shop/pages/cart_page.dart';
-import 'package:flutter_shop/pages/category_page.dart';
-import 'package:flutter_shop/pages/member_page.dart';
 import 'home_page.dart';
 import 'category_page.dart';
 import 'cart_page.dart';
