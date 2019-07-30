@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
-
-import 'package:flutter_swiper/flutter_swiper.dart';
+import '../components//home/home_swiperdiy.dart';
+import '../components//home/home_navigator.dart';
 import '../service/server_method.dart';
 
 class HomePage extends StatefulWidget {
@@ -26,9 +26,12 @@ class _HomePageState extends State<HomePage> {
               var _data = data['data'];
               if (_data != null) {
                 List<Map> swiperList = (_data['slides'] as List).cast();
+                List<Map> navigatorList = (_data['category'] as List).cast();
+                
                 return Column(
                   children: <Widget>[
                     SwiperDiy(swiperList: swiperList),
+                    TopNavigator(navigatorList: navigatorList)
                   ],
                 );
               } else {
@@ -49,25 +52,5 @@ class _HomePageState extends State<HomePage> {
             }
           },
         ));
-  }
-}
-
-///首页轮播组件
-class SwiperDiy extends StatelessWidget {
-  final List swiperList;
-  SwiperDiy({Key key, this.swiperList}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 170.0,
-      child: Swiper(
-        itemBuilder: (BuildContext context, int index) {
-          return Image.network("${swiperList[index]['image']}",fit: BoxFit.fill,);
-        },
-        itemCount: swiperList.length,
-        pagination: SwiperPagination(),
-        autoplay: true,
-      ),
-    );
   }
 }
