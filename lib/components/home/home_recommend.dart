@@ -2,7 +2,7 @@
  * @Author: Zww
  * @Date: 2019-07-30 13:57:44
  * @LastEditors: Zww
- * @LastEditTime: 2019-07-30 14:30:20
+ * @LastEditTime: 2019-07-31 15:53:23
  * @Description: 推荐商品组件
  */
 import 'package:flutter/material.dart';
@@ -44,7 +44,7 @@ class HomeRecommend extends StatelessWidget {
   }
 
   //推荐商品列表子项布局
-  Widget _item(index) {
+  Widget _item(int index) {
     return InkWell(
       onTap: () {},
       child: Container(

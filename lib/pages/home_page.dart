@@ -11,7 +11,6 @@ import '../components/home/home_adbanner.dart';
 import '../components/home/home_leader_phone.dart';
 import '../components/home/home_recommend.dart';
 import '../components/home/home_floor.dart';
-
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
