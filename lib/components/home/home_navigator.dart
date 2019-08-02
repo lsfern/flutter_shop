@@ -2,13 +2,13 @@
  * @Author: Zww
  * @Date: 2019-07-30 10:28:10
  * @LastEditors: Zww
- * @LastEditTime: 2019-07-30 17:21:37
+ * @LastEditTime: 2019-08-02 09:20:35
  * @Description: 首页导航组件
  */
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import '../../routers/application.dart';
 class TopNavigator extends StatelessWidget {
   final List navigatorList;
   TopNavigator({Key key, this.navigatorList}) : super(key: key);
@@ -16,7 +16,7 @@ class TopNavigator extends StatelessWidget {
   Widget _gridItemViewUI(BuildContext context, item) {
     return InkWell(
       onTap: () {
-        print('点击了导航');
+       Applcation.router.navigateTo(context, '/detail?id=${item['goodsId']}');
       },
       child: Column(
         children: <Widget>[

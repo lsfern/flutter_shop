@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'dart:convert';
 import '../service/server_method.dart';
-
+import '../routers/application.dart';
 import '../components/home/home_swiperdiy.dart';
 import '../components/home/home_navigator.dart';
 import '../components/home/home_adbanner.dart';
@@ -66,9 +66,6 @@ class _HomePageState extends State<HomePage>
                 List<Map> floor2 = (_data['floor2'] as List).cast(); //楼层1商品和图片
                 List<Map> floor3 = (_data['floor3'] as List).cast(); //楼层1商品和图片
                 return EasyRefresh(
-                  key: _easyRefreshKey,
-                  firstRefresh: true,
-                  behavior: ScrollBehavior(),
                   refreshHeader: ClassicsHeader(
                     key: _headerKey,
                     refreshText: '下拉刷新',
@@ -114,7 +111,7 @@ class _HomePageState extends State<HomePage>
                         floorTitle: floor3Title,
                         floorGoodList: floor3,
                       ),
-                      _hotGoods(),
+                      _hotGoods(context),
                     ],
                   ),
                   onRefresh: () async {
@@ -170,10 +167,13 @@ class _HomePageState extends State<HomePage>
     child: Text('火爆专区'),
   );
 
-  Widget _wrapList() {
+  Widget _wrapList(BuildContext context) {
     List<Widget> data = hotGoodsList.map((val) {
       return InkWell(
-          onTap: () {},
+          onTap: () {
+            Applcation.router
+              .navigateTo(context, '/detail?id=${val['goodsId']}');
+          },
           child: Container(
             width: ScreenUtil().setWidth(372),
             padding: const EdgeInsets.all(5.0),
@@ -213,10 +213,10 @@ class _HomePageState extends State<HomePage>
     ));
   }
 
-  Widget _hotGoods() {
+  Widget _hotGoods(BuildContext context) {
     return Container(
         child: Column(
-      children: <Widget>[_hotTitle, _wrapList()],
+      children: <Widget>[_hotTitle, _wrapList(context)],
     ));
   }
 }

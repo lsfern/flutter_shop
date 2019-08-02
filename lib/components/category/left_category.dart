@@ -2,18 +2,19 @@
  * @Author: Zww
  * @Date: 2019-07-31 14:16:59
  * @LastEditors: Zww
- * @LastEditTime: 2019-07-31 18:48:44
+ * @LastEditTime: 2019-08-01 15:24:28
  * @Description: 分类界面类别组件
  */
-import 'package:flutter/material.dart';
 import 'dart:convert';
+
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provide/provide.dart';
-import '../../service/server_method.dart';
-import '../../provide/child_catrgory.dart';
-import '../../provide/category_list.dart';
+
 import '../../model/category.dart';
-import '../../model/category_goods.dart';
+import '../../provide/category_list.dart';
+import '../../provide/child_catrgory.dart';
+import '../../service/server_method.dart';
 
 class LeftCategory extends StatefulWidget {
   @override
@@ -55,8 +56,11 @@ class _LeftCategoryState extends State<LeftCategory> {
         });
         var childList = leftCategoryList[index].bxMallSubDto;
         var categoryId = leftCategoryList[index].mallCategoryId;
-        Provide.value<ChildCategory>(context).getChildCateGory(childList);
-        _getMallGoodsList(categoryId);
+        Provide.value<ChildCategory>(context)
+            .getChildCateGory(childList, categoryId);
+        //获取指定项的全部商品
+        Provide.value<CategoryListProvide>(context)
+            .getMallGoods(categoryId, '');
       },
       child: Container(
         height: ScreenUtil().setHeight(90),
@@ -80,19 +84,14 @@ class _LeftCategoryState extends State<LeftCategory> {
       setState(() {
         leftCategoryList = categoryModel.data;
       });
+      //获取第一项的二级类别
       Provide.value<ChildCategory>(context)
-          .getChildCateGory(leftCategoryList[0].bxMallSubDto);
-      _getMallGoodsList(leftCategoryList[0].mallCategoryId);
-    });
-  }
+          .getChildCateGory(leftCategoryList[0].bxMallSubDto, '');
 
-  void _getMallGoodsList(String categoryId) async {
-    var formData = {'categoryId': categoryId, 'categorySubId': '', 'page': 1};
-    await sendRequest('getMallGoods', formData: formData).then((val) {
-      var data = json.decode(val.toString());
-      CategoryGoods categoryGoods = CategoryGoods.fromJson(data);
+      //获取第一项的全部商品
       Provide.value<CategoryListProvide>(context)
-          .getCategoryList(categoryGoods.data);
+          .getMallGoods(leftCategoryList[0].mallCategoryId, '');
+
     });
   }
 }

@@ -2,7 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:provide/provide.dart';
 import '../provide/counter.dart';
 
-class MemberPage extends StatelessWidget {
+class MemberPage extends StatefulWidget  {
+ 
+  @override
+  _MemberPageState createState() => _MemberPageState();
+}
+
+class _MemberPageState extends State<MemberPage> with AutomaticKeepAliveClientMixin{
+   @override
+  bool get wantKeepAlive => true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
