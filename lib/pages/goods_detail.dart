@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provide/provide.dart';
 import '../provide/goods_detail.dart';
-import './detailpage/detail_page_top.dart';
-import './detailpage/detail_page_tip.dart';
-import './detailpage/detail_page_tabbar.dart';
-import './detailpage/detail_page_web.dart';
-import './detailpage/detail_page_bottom.dart';
+import '../components/gooddetail/detail_page_top.dart';
+import '../components/gooddetail/detail_page_tip.dart';
+import '../components/gooddetail/detail_page_tabbar.dart';
+import '../components/gooddetail/detail_page_web.dart';
+import '../components/gooddetail/detail_page_bottom.dart';
 
 class GoodsDetailPage extends StatelessWidget {
   final String goodsId;
@@ -42,7 +42,10 @@ class GoodsDetailPage extends StatelessWidget {
                 ],
               );
             } else {
-              return Text('加载中........');
+              return Container(
+                alignment: Alignment.center,
+                child: Text('加载中........'),
+              );
             }
           },
         ));
