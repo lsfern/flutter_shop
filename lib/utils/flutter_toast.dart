@@ -1,13 +1,11 @@
-/*
- * @Author: Zww
- * @Date: 2019-08-01 15:51:14
- * @LastEditors: Zww
- * @LastEditTime: 2019-08-02 09:23:08
- * @Description: 吐司工具类
- */
+
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+/// Author: ZWW
+/// Date: 2019/8/1 15:49
+/// Description: ToastUtil
 
 class ToastUtil {
   static ToastUtil instance = new ToastUtil();

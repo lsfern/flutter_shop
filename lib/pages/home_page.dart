@@ -11,6 +11,12 @@ import '../components/home/home_adbanner.dart';
 import '../components/home/home_leader_phone.dart';
 import '../components/home/home_recommend.dart';
 import '../components/home/home_floor.dart';
+
+/// Author: ZWW
+/// Date: 2019/7/23 9:52
+/// Description: 首页
+
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -171,8 +177,8 @@ class _HomePageState extends State<HomePage>
     List<Widget> data = hotGoodsList.map((val) {
       return InkWell(
           onTap: () {
-            Applcation.router
-              .navigateTo(context, '/detail?id=${val['goodsId']}');
+            Application.router
+                .navigateTo(context, '/detail?id=${val['goodsId']}');
           },
           child: Container(
             width: ScreenUtil().setWidth(372),

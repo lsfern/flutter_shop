@@ -1,10 +1,7 @@
-/*
- * @Author: Zww
- * @Date: 2019-07-31 16:35:03
- * @LastEditors: Zww
- * @LastEditTime: 2019-07-31 18:50:07
- * @Description: 商品列表实体类
- */
+
+/// Author: ZWW
+/// Date: 2019-07-31 16:35
+/// Description: 商品列表实体类
 
 class CategoryGoods {
   String code;

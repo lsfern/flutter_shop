@@ -1,12 +1,9 @@
-/*
- * @Author: Zww
- * @Date: 2019-08-02 16:56:28
- * @LastEditors: Zww
- * @LastEditTime: 2019-08-02 17:02:35
- * @Description: 商品详情说明组件
- */
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+/// Author: ZWW
+/// Date: 2019-08-02 16:56
+/// Description: 商品详情说明组件
 
 class DetailPageTip extends StatelessWidget {
   @override

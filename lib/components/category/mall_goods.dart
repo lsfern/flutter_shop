@@ -1,10 +1,3 @@
-/*
- * @Author: Zww
- * @Date: 2019-07-31 16:25:58
- * @LastEditors: Zww
- * @LastEditTime: 2019-08-01 18:28:12
- * @Description: 商品列表
- */
 import 'package:flutter/material.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -12,6 +5,11 @@ import 'package:flutter_shop/provide/child_catrgory.dart';
 import 'package:provide/provide.dart';
 import '../../provide/category_list.dart';
 import '../../routers/application.dart';
+
+/// Author: ZWW
+/// Date: 2019-07-31 16:25
+/// Description: 商品列表组件
+
 class MallGoods extends StatefulWidget {
   @override
   _MallGoodsState createState() => _MallGoodsState();
@@ -110,7 +108,7 @@ class _MallGoodsState extends State<MallGoods> {
   Widget _listItemWidget(List newList, int index) {
     return InkWell(
       onTap: () {
-        Applcation.router.navigateTo(context, '/detail?id=${newList[index].goodsId}');
+        Application.router.navigateTo(context, '/detail?id=${newList[index].goodsId}');
       },
       child: Container(
         padding: EdgeInsets.only(top: 5.0, bottom: 5.0),

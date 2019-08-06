@@ -1,13 +1,10 @@
-/*
- * @Author: Zww
- * @Date: 2019-07-30 15:21:18
- * @LastEditors: Zww
- * @LastEditTime: 2019-08-02 09:01:24
- * @Description: 楼层组件
- */
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../routers/application.dart';
+
+/// Author: ZWW
+/// Date: 2019-07-30 15:21
+/// Description: 2019-07-30 15:21:18
 
 class FloorWidget extends StatelessWidget {
   final String floorTitle;
@@ -64,7 +61,7 @@ class FloorWidget extends StatelessWidget {
       width: ScreenUtil().setWidth(375),
       child: InkWell(
         onTap: () {
-          Applcation.router
+          Application.router
               .navigateTo(context, '/detail?id=${goods['goodsId']}');
         },
         child: Image.network(goods['image']),

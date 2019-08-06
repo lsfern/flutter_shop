@@ -6,6 +6,10 @@ import '../service/server_method.dart';
 import '../model/category_goods.dart';
 import '../utils/flutter_toast.dart';
 
+/// Author: ZWW
+/// Date: 2019/7/30 11:27
+/// Description: 商品类别Provide
+
 class CategoryListProvide with ChangeNotifier {
   List<CategoryListData> categoryList = [];
 

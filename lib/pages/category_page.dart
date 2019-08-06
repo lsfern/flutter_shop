@@ -3,6 +3,10 @@ import '../components/category/left_category.dart';
 import '../components/category/right_category.dart';
 import '../components/category/mall_goods.dart';
 
+/// Author: ZWW
+/// Date: 2019/7/24 10:12
+/// Description: 分类界面
+
 class CategoryPage extends StatefulWidget {
   @override
   _CategoryPageState createState() => _CategoryPageState();

@@ -3,6 +3,10 @@ import 'dart:convert';
 import '../service/server_method.dart';
 import '../model/goods_detail.dart';
 
+/// Author: ZWW
+/// Date: 2019/7/30 15:38
+/// Description: 商品详情Provide
+
 class GoodsDetailProvide with ChangeNotifier {
   GoodsDetail goodsDetail;
   bool isLeft = true;

@@ -1,13 +1,11 @@
-/*
- * @Author: Zww
- * @Date: 2019-07-30 13:57:44
- * @LastEditors: Zww
- * @LastEditTime: 2019-08-02 08:59:07
- * @Description: 推荐商品组件
- */
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../routers/application.dart';
+
+/// Author: ZWW
+/// Date: 2019-07-30 13:57
+/// Description: 推荐商品组件
+
 class HomeRecommend extends StatelessWidget {
   final List recommendList;
 
@@ -47,7 +45,7 @@ class HomeRecommend extends StatelessWidget {
   Widget _item(BuildContext context,int index) {
     return InkWell(
       onTap: () {
-        Applcation.router.navigateTo(context, '/detail?id=${recommendList[index]['goodsId']}');
+        Application.router.navigateTo(context, '/detail?id=${recommendList[index]['goodsId']}');
       },
       child: Container(
         height: ScreenUtil().setHeight(330),

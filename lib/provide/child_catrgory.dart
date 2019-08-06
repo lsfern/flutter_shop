@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import '.././model/category.dart';
 
+/// Author: ZWW
+/// Date: 2019/7/30 13:27
+/// Description: 商品二级类别Provide
+
 class ChildCategory with ChangeNotifier {
   List<BxMallSubDto> childCateGory = [];
   String categoryId = '4';

@@ -7,6 +7,10 @@ import '../components/gooddetail/detail_page_tabbar.dart';
 import '../components/gooddetail/detail_page_web.dart';
 import '../components/gooddetail/detail_page_bottom.dart';
 
+/// Author: ZWW
+/// Date: 2019/7/27 14:42
+/// Description: 商品详情界面
+
 class GoodsDetailPage extends StatelessWidget {
   final String goodsId;
   GoodsDetailPage(this.goodsId);

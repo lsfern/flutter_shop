@@ -1,16 +1,13 @@
-/*
- * @Author: Zww
- * @Date: 2019-07-31 15:05:55
- * @LastEditors: Zww
- * @LastEditTime: 2019-08-01 15:15:11
- * @Description: 二级类别组件
- */
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provide/provide.dart';
 import '../../provide/child_catrgory.dart';
 import '../../provide/category_list.dart';
 import '../../model/category.dart';
+
+/// Author: ZWW
+/// Date: 2019-07-31 15:05
+/// Description: 二级类别组件
 
 class RightCategory extends StatefulWidget {
   @override

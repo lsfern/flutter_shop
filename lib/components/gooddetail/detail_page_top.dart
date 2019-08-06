@@ -1,16 +1,13 @@
-/*
- * @Author: Zww
- * @Date: 2019-08-02 13:58:45
- * @LastEditors: Zww
- * @LastEditTime: 2019-08-02 18:13:23
- * @Description: 商品详情顶部组件
- */
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:transparent_image/transparent_image.dart';
 import 'package:flutter_shop/provide/goods_detail.dart';
 import 'package:provide/provide.dart';
 import '../../model/goods_detail.dart';
+
+/// Author: ZWW
+/// Date: 2019-08-02 13:58
+/// Description: 商品详情顶部组件
 
 class DetailPageTop extends StatelessWidget {
   @override
@@ -42,13 +39,12 @@ class DetailPageTop extends StatelessWidget {
   ///商品图片
   Widget _goodsImage(String imageUrl) {
     return Container(
-      width: ScreenUtil().setWidth(740),
-      margin: EdgeInsets.only(top: 8.0),
-      child: FadeInImage.memoryNetwork(
-        image: imageUrl,
-        placeholder: kTransparentImage,
-      )
-    );
+        width: ScreenUtil().setWidth(740),
+        margin: EdgeInsets.only(top: 8.0),
+        child: FadeInImage.memoryNetwork(
+          image: imageUrl,
+          placeholder: kTransparentImage,
+        ));
   }
 
   ///商品名称

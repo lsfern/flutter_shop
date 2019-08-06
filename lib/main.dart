@@ -8,18 +8,21 @@ import './provide/counter.dart';
 import './provide/child_catrgory.dart';
 import './provide/category_list.dart';
 import './provide/goods_detail.dart';
+import './provide/cate_goods.dart';
 
 void main() {
   var providers = Providers();
   var counter = Counter();
-  var childCatrgory = ChildCategory();
+  var childCategory = ChildCategory();
   var categoryListProvide = CategoryListProvide();
   var goodsDetailProvide = GoodsDetailProvide();
+  var cateGoodProvide = CateGoodProvide();
   providers
     ..provide(Provider<Counter>.value(counter))
-    ..provide(Provider<ChildCategory>.value(childCatrgory))
+    ..provide(Provider<ChildCategory>.value(childCategory))
     ..provide(Provider<CategoryListProvide>.value(categoryListProvide))
-    ..provide(Provider<GoodsDetailProvide>.value(goodsDetailProvide));
+    ..provide(Provider<GoodsDetailProvide>.value(goodsDetailProvide))
+    ..provide(Provider<CateGoodProvide>.value(cateGoodProvide));
   runApp(ProviderNode(
     child: MyApp(),
     providers: providers,
@@ -31,12 +34,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final router = Router();
     Routes.configureRoutes(router);
-    Applcation.router = router;
+    Application.router = router;
     return Container(
       child: MaterialApp(
           title: '百姓生活+',
-          debugShowCheckedModeBanner: false,
-          onGenerateRoute: Applcation.router.generator,
+          debugShowCheckedModeBanner: true,
+          onGenerateRoute: Application.router.generator,
           theme: ThemeData(primaryColor: Colors.pink),
           home: IndexPage()),
     );

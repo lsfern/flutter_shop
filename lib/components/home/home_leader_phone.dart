@@ -1,12 +1,9 @@
-/*
- * @Author: Zww
- * @Date: 2019-07-30 11:58:23
- * @LastEditors: Zww
- * @LastEditTime: 2019-07-30 12:50:16
- * @Description: 店长电话组件
- */
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+/// Author: ZWW
+/// Date: 2019-07-30 11:58:23
+/// Description: 店长电话组件
 
 class LeaderPhone extends StatelessWidget {
   final String leaderImage;

@@ -15,6 +15,6 @@ class Routes {
         child: Text('ROUTER IS NOT FOUND!!!'),
       );
     });
-    router.define(categoryDetailPage, handler: goodDetailetailHandler);
+    router.define(categoryDetailPage, handler: goodDetailHandler);
   }
 }

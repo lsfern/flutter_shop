@@ -1,10 +1,7 @@
-/*
- * @Author: Zww
- * @Date: 2019-07-31 10:08:46
- * @LastEditors: Zww
- * @LastEditTime: 2019-07-31 18:49:48
- * @Description: 商品类别实体类
- */
+
+/// Author: ZWW
+/// Date: 2019-07-31 10:08
+/// Description: 商品类别实体类
 
 class CategoryModel {
   String code;

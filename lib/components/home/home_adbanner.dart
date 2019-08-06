@@ -1,12 +1,8 @@
-/*
- * @Author: Zww
- * @Date: 2019-07-30 11:30:29
- * @LastEditors: Zww
- * @LastEditTime: 2019-07-30 11:32:26
- * @Description: 首页AdBanner组件
- */
-
 import 'package:flutter/material.dart';
+
+/// Author: ZWW
+/// Date: 2019-07-30 11:30
+/// Description: 首页AdBanner组件
 
 class AdBanner extends StatelessWidget {
   final String advertesPicture;

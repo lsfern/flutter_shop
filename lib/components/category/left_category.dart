@@ -1,10 +1,3 @@
-/*
- * @Author: Zww
- * @Date: 2019-07-31 14:16:59
- * @LastEditors: Zww
- * @LastEditTime: 2019-08-01 15:24:28
- * @Description: 分类界面类别组件
- */
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -15,6 +8,10 @@ import '../../model/category.dart';
 import '../../provide/category_list.dart';
 import '../../provide/child_catrgory.dart';
 import '../../service/server_method.dart';
+
+/// Author: ZWW
+/// Date: 2019/8/1 15:02
+/// Description: 分类界面类别组件
 
 class LeftCategory extends StatefulWidget {
   @override

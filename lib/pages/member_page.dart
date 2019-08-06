@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:provide/provide.dart';
 import '../provide/counter.dart';
 
+/// Author: ZWW
+/// Date: 2019/7/24 17:20
+/// Description: 个人中心界面
+
 class MemberPage extends StatefulWidget  {
  
   @override

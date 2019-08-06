@@ -1,14 +1,11 @@
-/*
- * @Author: Zww
- * @Date: 2019-08-02 17:05:14
- * @LastEditors: Zww
- * @LastEditTime: 2019-08-02 18:06:50
- * @Description: 商品详情TabBar组件
- */
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provide/provide.dart';
 import '../../provide/goods_detail.dart';
+
+/// Author: ZWW
+/// Date: 2019-08-02 17:05
+/// Description: 商品详情底部TabBar组件
 
 class DetailPageTabBar extends StatelessWidget {
   @override

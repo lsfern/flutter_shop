@@ -1,10 +1,8 @@
-/*
- * @Author: Zww
- * @Date: 2019-08-01 18:13:49
- * @LastEditors: Zww
- * @LastEditTime: 2019-08-02 13:33:57
- * @Description: 商品详情实体类
- */
+
+/// Author: ZWW
+/// Date: 2019-08-01 18:13
+/// Description: 商品详情实体类
+
 class GoodsDetail {
   String code;
   String message;
