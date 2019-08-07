@@ -9,6 +9,7 @@ import './provide/child_catrgory.dart';
 import './provide/category_list.dart';
 import './provide/goods_detail.dart';
 import './provide/cate_goods.dart';
+import './provide/current_index.dart';
 
 void main() {
   var providers = Providers();
@@ -17,12 +18,14 @@ void main() {
   var categoryListProvide = CategoryListProvide();
   var goodsDetailProvide = GoodsDetailProvide();
   var cateGoodProvide = CateGoodProvide();
+  var currentIndexProvide = CurrentIndexProvide();
   providers
     ..provide(Provider<Counter>.value(counter))
     ..provide(Provider<ChildCategory>.value(childCategory))
     ..provide(Provider<CategoryListProvide>.value(categoryListProvide))
     ..provide(Provider<GoodsDetailProvide>.value(goodsDetailProvide))
-    ..provide(Provider<CateGoodProvide>.value(cateGoodProvide));
+    ..provide(Provider<CateGoodProvide>.value(cateGoodProvide))
+    ..provide(Provider<CurrentIndexProvide>.value(currentIndexProvide));
   runApp(ProviderNode(
     child: MyApp(),
     providers: providers,

@@ -13,7 +13,9 @@ import '../../model/cate_info.dart';
 
 class CartItem extends StatelessWidget {
   final CateInfoModel cateInfoModel;
+
   CartItem(this.cateInfoModel);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -24,24 +26,27 @@ class CartItem extends StatelessWidget {
               Border(bottom: BorderSide(width: 1.0, color: Colors.black12))),
       child: Row(
         children: <Widget>[
-          _goodsCheckBt(context,cateInfoModel),
+          _goodsCheckBt(context, cateInfoModel),
           _goodsImage(),
           _goodsName(),
-          _goodsPrice(context,cateInfoModel)
+          _goodsPrice(context, cateInfoModel)
         ],
       ),
     );
   }
 
   ///商品多选按钮
-  Widget _goodsCheckBt(context,item) {
+  Widget _goodsCheckBt(context, item) {
     return Container(
       child: InkWell(
           onTap: () {},
           child: Checkbox(
             value: item.isCheck,
             activeColor: Colors.pink,
-            onChanged: (bool val) {},
+            onChanged: (bool val) {
+              item.isCheck = val;
+              Provide.value<CateGoodProvide>(context).changeItemCheckStatus(item);
+            },
           )),
     );
   }
@@ -68,16 +73,13 @@ class CartItem extends StatelessWidget {
       alignment: Alignment.topLeft,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(cateInfoModel.goodsName),
-          CartCount()
-        ],
+        children: <Widget>[Text(cateInfoModel.goodsName), CartCount(cateInfoModel)],
       ),
     );
   }
 
   ///商品价格
-  Widget _goodsPrice(BuildContext context,item) {
+  Widget _goodsPrice(BuildContext context, item) {
     return Container(
       width: ScreenUtil().setWidth(150),
       alignment: Alignment.centerRight,
@@ -88,7 +90,8 @@ class CartItem extends StatelessWidget {
             margin: EdgeInsets.only(top: 10.0),
             child: InkWell(
               onTap: () {
-                Provide.value<CateGoodProvide>(context).deleteGoodsByGoodsId(item.goodsId);
+                Provide.value<CateGoodProvide>(context)
+                    .deleteGoodsByGoodsId(item.goodsId);
               },
               child: Icon(
                 Icons.delete_forever,
