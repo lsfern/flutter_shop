@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
+import 'package:flutter_shop/model/category.dart';
 import 'dart:convert';
 import '../service/server_method.dart';
 import '../routers/application.dart';
@@ -43,7 +44,6 @@ class _HomePageState extends State<HomePage>
     return Scaffold(
         appBar: AppBar(
           title: Text('百姓生活+'),
-          elevation: 0.0,
           centerTitle: true,
         ),
         body: FutureBuilder(
@@ -54,11 +54,18 @@ class _HomePageState extends State<HomePage>
               var _data = data['data'];
               if (_data != null) {
                 List<Map> swiperList = (_data['slides'] as List).cast();
-                List<Map> navigatorList = (_data['category'] as List).cast(); //
+                List _categoryList = [];
+                List<Map> navigatorList = (_data['category'] as List).cast();
+                if (navigatorList.length > 10) {
+                  navigatorList.removeRange(10, navigatorList.length);
+                }
+                navigatorList.forEach((item){
+                  _categoryList.add(Data.fromJson(item));
+                });
                 String advertesPicture =
-                    _data['advertesPicture']['PICTURE_ADDRESS']; //广告图
-                String leaderImage = _data['shopInfo']['leaderImage']; //店长图片
-                String leaderPhone = _data['shopInfo']['leaderPhone']; //店长电话
+                    _data['advertesPicture']['PICTURE_ADDRESS']; /// 广告图
+                String leaderImage = _data['shopInfo']['leaderImage']; /// 店长图片
+                String leaderPhone = _data['shopInfo']['leaderPhone']; /// 店长电话
                 List<Map> recommendList =
                     (_data['recommend'] as List).cast(); // 商品推荐
 
@@ -100,7 +107,7 @@ class _HomePageState extends State<HomePage>
                   child: ListView(
                     children: <Widget>[
                       SwiperDiy(swiperList: swiperList),
-                      TopNavigator(navigatorList: navigatorList),
+                      TopNavigator(navigatorList: _categoryList),
                       AdBanner(advertesPicture: advertesPicture),
                       LeaderPhone(
                           leaderImage: leaderImage, leaderPhone: leaderPhone),

@@ -5,6 +5,7 @@ import './routers/application.dart';
 import './routers/routers.dart';
 import './pages/index_page.dart';
 import './provide/counter.dart';
+import './provide/left_category.dart';
 import './provide/child_catrgory.dart';
 import './provide/category_list.dart';
 import './provide/goods_detail.dart';
@@ -14,6 +15,7 @@ import './provide/current_index.dart';
 void main() {
   var providers = Providers();
   var counter = Counter();
+  var leftCategoryProvide = LeftCategoryProvide();
   var childCategory = ChildCategory();
   var categoryListProvide = CategoryListProvide();
   var goodsDetailProvide = GoodsDetailProvide();
@@ -21,6 +23,7 @@ void main() {
   var currentIndexProvide = CurrentIndexProvide();
   providers
     ..provide(Provider<Counter>.value(counter))
+    ..provide(Provider<LeftCategoryProvide>.value(leftCategoryProvide))
     ..provide(Provider<ChildCategory>.value(childCategory))
     ..provide(Provider<CategoryListProvide>.value(categoryListProvide))
     ..provide(Provider<GoodsDetailProvide>.value(goodsDetailProvide))

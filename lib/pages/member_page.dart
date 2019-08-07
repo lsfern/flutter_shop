@@ -20,7 +20,6 @@ class _MemberPageState extends State<MemberPage> with AutomaticKeepAliveClientMi
     return Scaffold(
         appBar: AppBar(
           title: Text('会员中心'),
-          elevation: 0.0,
           centerTitle: true,
         ),
         body: Center(

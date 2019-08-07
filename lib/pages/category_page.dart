@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provide/provide.dart';
+import '../provide/left_category.dart';
+import '../provide/category_list.dart';
+import '../provide/child_catrgory.dart';
+import '../model/category.dart';
 import '../components/category/left_category.dart';
 import '../components/category/right_category.dart';
 import '../components/category/mall_goods.dart';
@@ -22,18 +27,40 @@ class _CategoryPageState extends State<CategoryPage>
     return Scaffold(
         appBar: AppBar(
           title: Text('商品分类'),
-          elevation: 0.0,
           centerTitle: true,
         ),
-        body: Container(
-          child: Row(
-            children: <Widget>[
-              LeftCategory(),
-              Column(
-                children: <Widget>[RightCategory(), MallGoods()],
-              )
-            ],
-          ),
+        body: FutureBuilder(
+          future: _getLeftCategory(context),
+          builder: (context, categoryData) {
+            print(categoryData);
+            if (categoryData.hasData) {
+              return Provide<LeftCategoryProvide>(
+                  builder: (context, child, leftCateData) {
+                List leftCategoryList = leftCateData.leftCategoryList;
+                if (leftCategoryList.isNotEmpty) {
+                  return Container(
+                    child: Row(
+                      children: <Widget>[
+                        LeftCategory(),
+                        Column(
+                          children: <Widget>[RightCategory(), MallGoods()],
+                        )
+                      ],
+                    ),
+                  );
+                } else {
+                  return Center(child: Text('暂无数据...'));
+                }
+              });
+            } else {
+              return Center(child: Text('加载中...'));
+            }
+          },
         ));
+  }
+
+  Future _getLeftCategory(BuildContext context) async {
+    await Provide.value<LeftCategoryProvide>(context).getLeftCategory(context);
+    return 'end';
   }
 }

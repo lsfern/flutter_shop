@@ -1,61 +1,57 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provide/provide.dart';
 
-import '../../model/category.dart';
 import '../../provide/category_list.dart';
 import '../../provide/child_catrgory.dart';
-import '../../service/server_method.dart';
+import '../../provide/left_category.dart';
 
 /// Author: ZWW
 /// Date: 2019/8/1 15:02
 /// Description: 分类界面类别组件
 
-class LeftCategory extends StatefulWidget {
-  @override
-  _LeftCategoryState createState() => _LeftCategoryState();
-}
-
-class _LeftCategoryState extends State<LeftCategory> {
-  List leftCategoryList = [];
-  int clickIndex = 0;
-  @override
-  void initState() {
-    _getLeftCategory();
-    super.initState();
-  }
-
+class LeftCategory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: ScreenUtil().setWidth(180),
-      decoration: BoxDecoration(
-          color: Colors.white,
-          border: Border(right: BorderSide(width: 1, color: Colors.black12))),
-      child: ListView.builder(
-        itemCount: leftCategoryList.length,
-        itemBuilder: (context, index) {
-          return _leftCategoryItem(index);
-        },
-      ),
+    return Provide<LeftCategoryProvide>(
+      builder: (context, child, leftCategory) {
+        List leftCategoryList = leftCategory.leftCategoryList;
+        return Container(
+          width: ScreenUtil().setWidth(180),
+          decoration: BoxDecoration(
+              color: Colors.white,
+              border:
+                  Border(right: BorderSide(width: 1, color: Colors.black12))),
+          child: ListView.builder(
+            itemCount: leftCategoryList.length,
+            itemBuilder: (context, index) {
+              return _leftCategoryItem(context, leftCategoryList, index);
+            },
+          ),
+        );
+      },
     );
   }
 
-  Widget _leftCategoryItem(int index) {
+  Widget _leftCategoryItem(
+      BuildContext context, List leftCategoryList, int index) {
+    int clickIndex = Provide.value<LeftCategoryProvide>(context).clickIndex;
     bool isClick = false;
     isClick = (clickIndex == index);
     return InkWell(
       onTap: () {
-        setState(() {
-          clickIndex = index;
-        });
         var childList = leftCategoryList[index].bxMallSubDto;
         var categoryId = leftCategoryList[index].mallCategoryId;
+
+        /// 设置大类别点击Index
+        Provide.value<LeftCategoryProvide>(context)
+            .changeClickIndex(categoryId);
+
+        /// 获取子类类别
         Provide.value<ChildCategory>(context)
             .getChildCateGory(childList, categoryId);
-        //获取指定项的全部商品
+
+        /// 获取指定项的全部商品
         Provide.value<CategoryListProvide>(context)
             .getMallGoods(categoryId, '');
       },
@@ -72,23 +68,5 @@ class _LeftCategoryState extends State<LeftCategory> {
         ),
       ),
     );
-  }
-
-  void _getLeftCategory() async {
-    await sendRequest('getCategory').then((val) {
-      var data = json.decode(val.toString());
-      CategoryModel categoryModel = CategoryModel.fromJson(data);
-      setState(() {
-        leftCategoryList = categoryModel.data;
-      });
-      //获取第一项的二级类别
-      Provide.value<ChildCategory>(context)
-          .getChildCateGory(leftCategoryList[0].bxMallSubDto, '');
-
-      //获取第一项的全部商品
-      Provide.value<CategoryListProvide>(context)
-          .getMallGoods(leftCategoryList[0].mallCategoryId, '');
-
-    });
   }
 }

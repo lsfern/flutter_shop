@@ -16,6 +16,7 @@ class DetailPageWeb extends StatelessWidget {
         print(goodData.goodsDetail.data.goodInfo.goodsDetail);
         if (goodData.isLeft) {
           return Container(
+            margin: EdgeInsets.only(bottom: ScreenUtil().setHeight(90)),
             child: Html(
               data: goodData.goodsDetail.data.goodInfo.goodsDetail,
             ),

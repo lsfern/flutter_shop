@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provide/provide.dart';
 import '../provide/cate_goods.dart';
 import '../components/cart/cart_item.dart';
@@ -14,7 +15,6 @@ class CartPage extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text('购物车'),
-          elevation: 0.0,
           centerTitle: true,
         ),
         body: FutureBuilder(
@@ -28,7 +28,7 @@ class CartPage extends StatelessWidget {
                     return Stack(
                       children: <Widget>[
                         Container(
-                          margin: EdgeInsets.only(bottom: 55),
+                          margin: EdgeInsets.only(bottom: ScreenUtil().setHeight(100)),
                           child: Provide<CateGoodProvide>(
                             builder: (context, child, childCateInfo) {
                               return ListView.builder(
